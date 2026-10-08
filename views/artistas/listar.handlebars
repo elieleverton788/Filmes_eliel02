@@ -1,0 +1,26 @@
+<div class="titulo-pagina">
+  <h1>Artistas</h1>
+  <a class="pure-button pure-button-primary" href="/artistas/cadastrar">Cadastrar artista</a>
+</div>
+
+<table class="pure-table pure-table-bordered tabela">
+  <thead><tr><th>Nome</th><th>Nome artístico</th><th>Nascimento</th><th>Atividade</th><th>Ações</th></tr></thead>
+  <tbody>
+    {{#each artistas}}
+    <tr>
+      <td>{{nome}}</td>
+      <td>{{nomeArtistico}}</td>
+      <td>{{anoNascimento}}</td>
+      <td>{{#if emAtividade}}Sim{{else}}Não{{/if}}</td>
+      <td class="acoes">
+        <a class="pure-button" href="/artistas/detalhar/{{id}}">Detalhar</a>
+        <a class="pure-button" href="/artistas/editar/{{id}}">Editar</a>
+        <form action="/artistas/excluir/{{id}}" method="POST" class="form-inline">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" class="pure-button excluir" value="Excluir">
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

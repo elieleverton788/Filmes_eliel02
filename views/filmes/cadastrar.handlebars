@@ -1,0 +1,50 @@
+<h1>Cadastrar Filme</h1>
+
+<form action="/filmes/cadastrar" method="POST" class="pure-form pure-form-stacked">
+
+  <label for="titulo">Título</label>
+  <input id="titulo" name="titulo" type="text" required>
+
+  <label for="anoLancamento">Ano de lançamento</label>
+  <input id="anoLancamento" name="anoLancamento" type="number" min="1888" required>
+
+  <label for="genero">Gênero</label>
+  <input id="genero" name="genero" type="text" required>
+
+  <label for="poster">URL do pôster</label>
+  <input id="poster" name="poster" type="url">
+
+  <label for="DiretorId">Diretor</label>
+  <select id="DiretorId" name="DiretorId">
+    <option value="">Selecione</option>
+    {{#each diretores}}
+      <option value="{{id}}">{{nome}}</option>
+    {{/each}}
+  </select>
+
+  <label for="artistas">Artistas</label>
+  <select id="artistas" name="artistas" multiple size="5">
+    {{#each artistas}}
+      <option value="{{id}}">{{nome}}{{#if nomeArtistico}} — {{nomeArtistico}}{{/if}}</option>
+    {{/each}}
+  </select>
+
+  <label for="sinopse">Sinopse</label>
+  <textarea id="sinopse" name="sinopse" required></textarea>
+
+  <fieldset class="ficha-box">
+    <legend>Ficha Técnica</legend>
+
+    <label for="duracao">Duração (minutos)</label>
+    <input id="duracao" name="duracao" type="number" min="1" required>
+
+    <label for="orcamento">Orçamento</label>
+    <input id="orcamento" name="orcamento" type="number" step="0.01" min="0" required>
+
+    <label for="bilheteria">Bilheteria</label>
+    <input id="bilheteria" name="bilheteria" type="number" step="0.01" min="0" required>
+  </fieldset>
+
+  <input class="pure-button pure-button-primary" type="submit" value="Cadastrar">
+  <a class="pure-button" href="/filmes">Cancelar</a>
+</form>

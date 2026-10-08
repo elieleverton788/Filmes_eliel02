@@ -1,0 +1,18 @@
+<h1>Cadastrar Diretor</h1>
+
+<form action="/diretores/cadastrar" method="POST" class="pure-form pure-form-stacked">
+  <label>Nome</label>
+  <input name="nome" required>
+
+  <label>Ano de nascimento</label>
+  <input name="anoNascimento" type="number" required>
+
+  <label>Em atividade?</label>
+  <select name="emAtividade">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+  </select>
+
+  <input class="pure-button pure-button-primary" type="submit" value="Cadastrar">
+  <a class="pure-button" href="/diretores">Cancelar</a>
+</form>

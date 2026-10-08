@@ -1,0 +1,17 @@
+{
+  "name": "filmes-purecss",
+  "version": "1.0.0",
+  "description": "Catálogo de filmes com Express, Handlebars, Sequelize, SQLite e Pure.css",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
+    "method-override": "^3.0.0",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7"
+  }
+}

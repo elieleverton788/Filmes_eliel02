@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-principal {
+  background: #17212b;
+  padding: 0 3%;
+}
+
+.menu-principal .pure-menu-heading,
+.menu-principal .pure-menu-link {
+  color: white;
+}
+
+.menu-principal .pure-menu-link:hover {
+  background: #263746;
+}
+
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 35px auto;
+  min-height: 70vh;
+}
+
+.hero {
+  background: white;
+  padding: 45px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.hero h1 {
+  margin-top: 0;
+  font-size: 38px;
+}
+
+.cards {
+  margin: 0 -10px;
+}
+
+.cards > div {
+  padding: 10px;
+}
+
+.card {
+  background: white;
+  margin-bottom: 20px;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.titulo-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.tabela {
+  width: 100%;
+  background: white;
+}
+
+.acoes {
+  white-space: nowrap;
+}
+
+.form-inline {
+  display: inline;
+}
+
+.excluir {
+  background: #c0392b;
+  color: white;
+}
+
+.pure-form {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.pure-form input[type="text"],
+.pure-form input[type="number"],
+.pure-form input[type="url"],
+.pure-form textarea,
+.pure-form select {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 18px;
+}
+
+.pure-form textarea {
+  min-height: 120px;
+}
+
+.ficha-box {
+  max-width: 700px;
+  margin: 25px 0;
+  padding: 20px;
+}
+
+.poster {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.poster-placeholder {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ddd;
+  border-radius: 6px;
+}
+
+.foto-artista {
+  max-width: 250px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.aviso {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.rodape {
+  text-align: center;
+  padding: 25px;
+  background: #17212b;
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .menu-principal .pure-menu-list {
+    display: block;
+  }
+
+  .titulo-pagina {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .acoes {
+    white-space: normal;
+  }
+}

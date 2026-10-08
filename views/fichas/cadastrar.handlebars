@@ -1,0 +1,23 @@
+<h1>Cadastrar Ficha Técnica</h1>
+
+<form action="/fichas/cadastrar" method="POST" class="pure-form pure-form-stacked">
+  <label>Filme</label>
+  <select name="FilmeId" required>
+    <option value="">Selecione</option>
+    {{#each filmes}}
+      <option value="{{id}}">{{titulo}}</option>
+    {{/each}}
+  </select>
+
+  <label>Duração (minutos)</label>
+  <input name="duracao" type="number" min="1" required>
+
+  <label>Orçamento</label>
+  <input name="orcamento" type="number" step="0.01" min="0" required>
+
+  <label>Bilheteria</label>
+  <input name="bilheteria" type="number" step="0.01" min="0" required>
+
+  <input class="pure-button pure-button-primary" type="submit" value="Cadastrar">
+  <a class="pure-button" href="/fichas">Cancelar</a>
+</form>

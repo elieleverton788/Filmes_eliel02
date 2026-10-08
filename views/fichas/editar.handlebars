@@ -1,0 +1,63 @@
+<h1>Editar Ficha Técnica</h1>
+
+<form action="/fichas/editar/{{ficha.id}}?_method=PUT" method="POST" class="pure-form pure-form-stacked">
+
+  <label>Filme</label>
+
+  <select name="FilmeId" required>
+
+    {{#each filmes}}
+
+      <option
+        value="{{this.id}}"
+        {{#if (eq this.id ../ficha.FilmeId)}}selected{{/if}}
+      >
+        {{this.titulo}}
+      </option>
+
+    {{/each}}
+
+  </select>
+
+  <label>Duração (minutos)</label>
+  <input
+    type="number"
+    name="duracao"
+    value="{{ficha.duracao}}"
+    required
+  >
+
+  <label>Orçamento</label>
+  <input
+    type="number"
+    step="0.01"
+    name="orcamento"
+    value="{{ficha.orcamento}}"
+    required
+  >
+
+  <label>Bilheteria</label>
+  <input
+    type="number"
+    step="0.01"
+    name="bilheteria"
+    value="{{ficha.bilheteria}}"
+    required
+  >
+
+  <br>
+
+  <input
+    class="pure-button pure-button-primary"
+    type="submit"
+    value="Salvar"
+  >
+
+  <a
+    class="pure-button"
+    href="/fichas/detalhar/{{ficha.id}}"
+  >
+    Cancelar
+  </a>
+
+</form>

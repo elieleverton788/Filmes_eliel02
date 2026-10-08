@@ -1,0 +1,19 @@
+<div class="titulo-pagina">
+  <h1>{{diretor.nome}}</h1>
+  <div>
+    <a class="pure-button" href="/diretores/editar/{{diretor.id}}">Editar</a>
+    <a class="pure-button" href="/diretores">Voltar</a>
+  </div>
+</div>
+
+<div class="card">
+  <p><strong>Ano de nascimento:</strong> {{diretor.anoNascimento}}</p>
+  <p><strong>Em atividade:</strong> {{#if diretor.emAtividade}}Sim{{else}}Não{{/if}}</p>
+
+  <h2>Filmes dirigidos</h2>
+  {{#if diretor.filmes.length}}
+    <ul>{{#each diretor.filmes}}<li>{{titulo}} ({{anoLancamento}})</li>{{/each}}</ul>
+  {{else}}
+    <p>Nenhum filme associado.</p>
+  {{/if}}
+</div>

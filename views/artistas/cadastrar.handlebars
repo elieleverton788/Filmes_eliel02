@@ -1,0 +1,27 @@
+<h1>Cadastrar Artista</h1>
+
+<form action="/artistas/cadastrar" method="POST" class="pure-form pure-form-stacked">
+  <label>Nome</label>
+  <input name="nome" required>
+
+  <label>Ano de nascimento</label>
+  <input name="anoNascimento" type="number" required>
+
+  <label>Foto (URL)</label>
+  <input name="foto" type="url">
+
+  <label>Nome artístico</label>
+  <input name="nomeArtistico">
+
+  <label>Técnicas de atuação</label>
+  <textarea name="tecnicasAtuacao"></textarea>
+
+  <label>Em atividade?</label>
+  <select name="emAtividade">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+  </select>
+
+  <input class="pure-button pure-button-primary" type="submit" value="Cadastrar">
+  <a class="pure-button" href="/artistas">Cancelar</a>
+</form>

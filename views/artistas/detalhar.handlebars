@@ -1,0 +1,22 @@
+<div class="titulo-pagina">
+  <h1>{{artista.nome}}</h1>
+  <div>
+    <a class="pure-button" href="/artistas/editar/{{artista.id}}">Editar</a>
+    <a class="pure-button" href="/artistas">Voltar</a>
+  </div>
+</div>
+
+<div class="card">
+  {{#if artista.foto}}<img class="foto-artista" src="{{artista.foto}}" alt="{{artista.nome}}">{{/if}}
+  <p><strong>Nome artístico:</strong> {{artista.nomeArtistico}}</p>
+  <p><strong>Ano de nascimento:</strong> {{artista.anoNascimento}}</p>
+  <p><strong>Em atividade:</strong> {{#if artista.emAtividade}}Sim{{else}}Não{{/if}}</p>
+  <p><strong>Técnicas:</strong> {{artista.tecnicasAtuacao}}</p>
+
+  <h2>Filmes associados</h2>
+  {{#if artista.filmes.length}}
+    <ul>{{#each artista.filmes}}<li>{{titulo}} ({{anoLancamento}})</li>{{/each}}</ul>
+  {{else}}
+    <p>Nenhum filme associado.</p>
+  {{/if}}
+</div>

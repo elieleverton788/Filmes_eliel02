@@ -1,0 +1,126 @@
+<h1>Editar Filme</h1>
+
+<form action="/filmes/editar/{{filme.id}}?_method=PUT" method="POST" class="pure-form pure-form-stacked">
+
+  <label>Título</label>
+  <input
+    type="text"
+    name="titulo"
+    value="{{filme.titulo}}"
+    required
+  >
+
+  <label>Ano de lançamento</label>
+  <input
+    type="number"
+    name="anoLancamento"
+    value="{{filme.anoLancamento}}"
+    required
+  >
+
+  <label>Gênero</label>
+  <input
+    type="text"
+    name="genero"
+    value="{{filme.genero}}"
+    required
+  >
+
+  <label>Poster (URL)</label>
+  <input
+    type="url"
+    name="poster"
+    value="{{filme.poster}}"
+  >
+
+  <label>Sinopse</label>
+  <textarea
+    name="sinopse"
+    rows="5"
+  >{{filme.sinopse}}</textarea>
+
+  <label>Diretor</label>
+
+  <select name="DiretorId">
+
+    <option value="">Selecione um diretor</option>
+
+    {{#each diretores}}
+
+      <option
+        value="{{this.id}}"
+        {{#if (eq this.id ../filme.DiretorId)}}selected{{/if}}
+      >
+        {{this.nome}}
+      </option>
+
+    {{/each}}
+
+  </select>
+
+
+  <h2>Artistas</h2>
+
+  {{#each artistas}}
+
+    <label>
+
+      <input
+        type="checkbox"
+        name="artistas"
+        value="{{this.id}}"
+        {{#if (includes ../artistasSelecionados this.id)}}checked{{/if}}
+      >
+
+      {{this.nome}}
+
+      {{#if this.nomeArtistico}}
+        ({{this.nomeArtistico}})
+      {{/if}}
+
+    </label>
+
+  {{/each}}
+
+
+  <h2>Ficha Técnica</h2>
+
+  <label>Duração (minutos)</label>
+  <input
+    type="number"
+    name="duracao"
+    value="{{filme.fichaTecnica.duracao}}"
+  >
+
+  <label>Orçamento</label>
+  <input
+    type="number"
+    step="0.01"
+    name="orcamento"
+    value="{{filme.fichaTecnica.orcamento}}"
+  >
+
+  <label>Bilheteria</label>
+  <input
+    type="number"
+    step="0.01"
+    name="bilheteria"
+    value="{{filme.fichaTecnica.bilheteria}}"
+  >
+
+  <br>
+
+  <input
+    class="pure-button pure-button-primary"
+    type="submit"
+    value="Salvar alterações"
+  >
+
+  <a
+    class="pure-button"
+    href="/filmes/detalhar/{{filme.id}}"
+  >
+    Cancelar
+  </a>
+
+</form>

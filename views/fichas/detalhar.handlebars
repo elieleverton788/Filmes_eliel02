@@ -1,0 +1,14 @@
+<div class="titulo-pagina">
+  <h1>Ficha Técnica</h1>
+  <div>
+    <a class="pure-button" href="/fichas/editar/{{ficha.id}}">Editar</a>
+    <a class="pure-button" href="/fichas">Voltar</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2>{{#if ficha.filme}}{{ficha.filme.titulo}}{{else}}Filme não encontrado{{/if}}</h2>
+  <p><strong>Duração:</strong> {{ficha.duracao}} minutos</p>
+  <p><strong>Orçamento:</strong> {{formatMoney ficha.orcamento}}</p>
+  <p><strong>Bilheteria:</strong> {{formatMoney ficha.bilheteria}}</p>
+</div>

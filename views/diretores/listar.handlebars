@@ -1,0 +1,26 @@
+<div class="titulo-pagina">
+  <h1>Diretores</h1>
+  <a class="pure-button pure-button-primary" href="/diretores/cadastrar">Cadastrar diretor</a>
+</div>
+
+<table class="pure-table pure-table-bordered tabela">
+  <thead><tr><th>Nome</th><th>Nascimento</th><th>Atividade</th><th>Filmes</th><th>Ações</th></tr></thead>
+  <tbody>
+    {{#each diretores}}
+    <tr>
+      <td>{{nome}}</td>
+      <td>{{anoNascimento}}</td>
+      <td>{{#if emAtividade}}Sim{{else}}Não{{/if}}</td>
+      <td>{{filmes.length}}</td>
+      <td class="acoes">
+        <a class="pure-button" href="/diretores/detalhar/{{id}}">Detalhar</a>
+        <a class="pure-button" href="/diretores/editar/{{id}}">Editar</a>
+        <form action="/diretores/excluir/{{id}}" method="POST" class="form-inline">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" class="pure-button excluir" value="Excluir">
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

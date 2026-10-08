@@ -1,0 +1,46 @@
+<h1>Editar Diretor</h1>
+
+<form action="/diretores/editar/{{diretor.id}}?_method=PUT" method="POST" class="pure-form pure-form-stacked">
+
+  <label>Nome</label>
+  <input
+    name="nome"
+    value="{{diretor.nome}}"
+    required
+  >
+
+  <label>Ano de nascimento</label>
+  <input
+    name="anoNascimento"
+    type="number"
+    value="{{diretor.anoNascimento}}"
+    required
+  >
+
+  <label>Em atividade?</label>
+  <select name="emAtividade">
+    <option value="true" {{#if diretor.emAtividade}}selected{{/if}}>
+      Sim
+    </option>
+
+    <option value="false" {{#unless diretor.emAtividade}}selected{{/unless}}>
+      Não
+    </option>
+  </select>
+
+  <br>
+
+  <input
+    class="pure-button pure-button-primary"
+    type="submit"
+    value="Salvar"
+  >
+
+  <a
+    class="pure-button"
+    href="/diretores/detalhar/{{diretor.id}}"
+  >
+    Cancelar
+  </a>
+
+</form>

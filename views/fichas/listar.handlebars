@@ -1,0 +1,26 @@
+<div class="titulo-pagina">
+  <h1>Fichas Técnicas</h1>
+  <a class="pure-button pure-button-primary" href="/fichas/cadastrar">Cadastrar ficha</a>
+</div>
+
+<table class="pure-table pure-table-bordered tabela">
+  <thead><tr><th>Filme</th><th>Duração</th><th>Orçamento</th><th>Bilheteria</th><th>Ações</th></tr></thead>
+  <tbody>
+    {{#each fichas}}
+    <tr>
+      <td>{{#if filme}}{{filme.titulo}}{{else}}Filme não encontrado{{/if}}</td>
+      <td>{{duracao}} min</td>
+      <td>{{formatMoney orcamento}}</td>
+      <td>{{formatMoney bilheteria}}</td>
+      <td class="acoes">
+        <a class="pure-button" href="/fichas/detalhar/{{id}}">Detalhar</a>
+        <a class="pure-button" href="/fichas/editar/{{id}}">Editar</a>
+        <form action="/fichas/excluir/{{id}}" method="POST" class="form-inline">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" class="pure-button excluir" value="Excluir">
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

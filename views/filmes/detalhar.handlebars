@@ -1,0 +1,51 @@
+<div class="titulo-pagina">
+  <h1>{{filme.titulo}}</h1>
+  <div>
+    <a class="pure-button" href="/filmes/editar/{{filme.id}}">Editar</a>
+    <a class="pure-button" href="/filmes">Voltar</a>
+  </div>
+</div>
+
+<div class="pure-g">
+  <div class="pure-u-1 pure-u-md-1-3">
+    <div class="card detalhe-card">
+      {{#if filme.poster}}
+        <img class="poster" src="{{filme.poster}}" alt="Pôster de {{filme.titulo}}">
+      {{else}}
+        <div class="poster-placeholder">Sem pôster</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="pure-u-1 pure-u-md-2-3">
+    <div class="card">
+      <h2>Informações do filme</h2>
+      <p><strong>Ano:</strong> {{filme.anoLancamento}}</p>
+      <p><strong>Gênero:</strong> {{filme.genero}}</p>
+      <p><strong>Diretor:</strong> {{#if filme.diretor}}{{filme.diretor.nome}}{{else}}Não informado{{/if}}</p>
+      <p><strong>Sinopse:</strong> {{filme.sinopse}}</p>
+
+      <h2>Artistas</h2>
+      {{#if filme.artistas.length}}
+        <ul>
+          {{#each filme.artistas}}
+            <li>{{nome}}{{#if nomeArtistico}} — {{nomeArtistico}}{{/if}}</li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>Nenhum artista associado.</p>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+{{#if filme.fichaTecnica}}
+<div class="card">
+  <h2>Ficha Técnica</h2>
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-1-3"><strong>Duração:</strong> {{filme.fichaTecnica.duracao}} min</div>
+    <div class="pure-u-1 pure-u-md-1-3"><strong>Orçamento:</strong> {{formatMoney filme.fichaTecnica.orcamento}}</div>
+    <div class="pure-u-1 pure-u-md-1-3"><strong>Bilheteria:</strong> {{formatMoney filme.fichaTecnica.bilheteria}}</div>
+  </div>
+</div>
+{{/if}}
